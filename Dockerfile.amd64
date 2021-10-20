@@ -1,0 +1,13 @@
+FROM alpine AS download
+
+RUN apk add --no-cache curl && \
+    curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -o /root/cloudflared-linux-amd64 && \
+    chmod +x /root/cloudflared-linux-amd64
+
+FROM alpine
+
+COPY --from=download /root/cloudflared-linux-amd64 /usr/bin/cloudflared
+
+COPY ./entry.sh /usr/bin/entry
+
+ENTRYPOINT [ "/usr/bin/entry" ]
