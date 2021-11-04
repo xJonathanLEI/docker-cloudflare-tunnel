@@ -39,4 +39,4 @@ echo "url: ${TARGET_URL}" > ~/.cloudflared/config.yml
 echo "tunnel: ${CLOUDFLARE_TUNNEL_ID}" >> ~/.cloudflared/config.yml
 echo "credentials-file: /root/.cloudflared/${CLOUDFLARE_TUNNEL_ID}.json" >> ~/.cloudflared/config.yml
 
-exec cloudflared tunnel run ${CLOUDFLARE_TUNNEL_ID}
+exec cloudflared tunnel --no-autoupdate run ${CLOUDFLARE_TUNNEL_ID}
