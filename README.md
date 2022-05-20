@@ -14,10 +14,6 @@ Before running a Cloudflare tunnel through this image, you must first create a t
 
 The container is configured through environment variables.
 
-- `CERT_PEM_BASE64`
-
-  The base64 encoded `cert.pem` file that's generated upon tunnel creation.
-
 - `CLOUDFLARE_ACCOUNT_ID`
 
   Cloudflare account ID.
