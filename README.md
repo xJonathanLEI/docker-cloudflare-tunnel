@@ -26,10 +26,6 @@ The container is configured through environment variables.
 
   Tunnel secret as in the `TunnelSecret` field of the tunnel JSON file.
 
-- `CLOUDFLARE_TUNNEL_NAME`
-
-  Tunnel name as in the `TunnelName` field of the tunnel JSON file.
-
 - `TARGET_URL`
 
   The URL to which traffic is redirected.

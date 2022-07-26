@@ -15,11 +15,6 @@ if [ -z "${CLOUDFLARE_TUNNEL_SECRET}" ]; then
   exit 1
 fi
 
-if [ -z "${CLOUDFLARE_TUNNEL_NAME}" ]; then
-  echo "CLOUDFLARE_TUNNEL_NAME not set"
-  exit 1
-fi
-
 if [ -z "${TARGET_URL}" ]; then
   echo "TARGET_URL not set"
   exit 1
@@ -27,7 +22,7 @@ fi
 
 mkdir ~/.cloudflared
 
-echo "{\"AccountTag\":\"${CLOUDFLARE_ACCOUNT_ID}\",\"TunnelSecret\":\"${CLOUDFLARE_TUNNEL_SECRET}\",\"TunnelID\":\"${CLOUDFLARE_TUNNEL_ID}\",\"TunnelName\":\"${CLOUDFLARE_TUNNEL_NAME}\"}" > ~/.cloudflared/${CLOUDFLARE_TUNNEL_ID}.json
+echo "{\"AccountTag\":\"${CLOUDFLARE_ACCOUNT_ID}\",\"TunnelSecret\":\"${CLOUDFLARE_TUNNEL_SECRET}\",\"TunnelID\":\"${CLOUDFLARE_TUNNEL_ID}\"}" > ~/.cloudflared/${CLOUDFLARE_TUNNEL_ID}.json
 
 echo "url: ${TARGET_URL}" > ~/.cloudflared/config.yml
 echo "tunnel: ${CLOUDFLARE_TUNNEL_ID}" >> ~/.cloudflared/config.yml
